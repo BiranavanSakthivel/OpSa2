@@ -8,7 +8,7 @@ import java.io.*;
 public class FreizeitbaederControl{
 
 	private static FreizeitbaederView freizeitbaederView;
-	private FreizeitbaederModel freizeitbaederModel;
+	private static FreizeitbaederModel freizeitbaederModel;
 
 	public FreizeitbaederControl(Stage primaryStage){
 		this.freizeitbaederModel = new FreizeitbaederModel();
@@ -18,17 +18,17 @@ public class FreizeitbaederControl{
 	public static void schreibeFreizeitbaederInDatei(String typ){
 		try{
 			if("csv".equals(typ)){
-				this.freizeitbaederModel.schreibeFreizeitbaederInCsvDatei();
-				this.freizeitbaederView.zeigeInformationsfensterAn("Die Freizeitbaeder wurden erfolgreich gespeichert");
+				freizeitbaederModel.schreibeFreizeitbaederInCsvDatei();
+				freizeitbaederView.zeigeInformationsfensterAn("Die Freizeitbaeder wurden erfolgreich gespeichert");
 			}
 			else
 				freizeitbaederView.zeigeInformationsfensterAn("Fehler ");
 		}
 		catch(IOException exc){
-			freizeitbaederView.zeigeFehlermeldungAn("ERROR", "Exception beim der Speicherung");
+			freizeitbaederView.zeigeFehlermeldungAn("Fehler", "Exception beim der Speicherung");
 		}
 		catch(Exception exc){
-			freizeitbaederView.zeigeFehlermeldungAn("ERROR","unbekannter Fehler");
+			freizeitbaederView.zeigeFehlermeldungAn("Fehler","unbekannter Fehler");
 		}
 	}
 
