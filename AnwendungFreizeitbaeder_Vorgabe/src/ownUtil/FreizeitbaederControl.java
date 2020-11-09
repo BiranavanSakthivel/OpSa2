@@ -1,4 +1,4 @@
-package business;
+package ownUtil;
 
 import business.*;
 import gui.FreizeitbaederView;

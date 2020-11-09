@@ -2,7 +2,6 @@ package gui;
 
 
 import business.Freizeitbad;
-import business.FreizeitbaederControl;
 import business.FreizeitbaederModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import ownUtil.FreizeitbaederControl;
 import ownUtil.MeldungsfensterAnzeiger;
 import ownUtil.PlausiException;
 
