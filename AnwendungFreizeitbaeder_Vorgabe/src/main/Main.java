@@ -1,8 +1,8 @@
 package main;
 
+import business.FreizeitbaederControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import ownUtil.FreizeitbaederControl;
 
 public class Main extends Application {
 	

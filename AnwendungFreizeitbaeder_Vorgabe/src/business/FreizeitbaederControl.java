@@ -1,6 +1,5 @@
-package ownUtil;
+package business;
 
-import business.*;
 import gui.FreizeitbaederView;
 import javafx.stage.*;
 import java.io.*;
