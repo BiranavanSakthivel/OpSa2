@@ -2,7 +2,6 @@ package gui;
 
 
 import business.Freizeitbad;
-import business.FreizeitbaederControl;
 import business.FreizeitbaederModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

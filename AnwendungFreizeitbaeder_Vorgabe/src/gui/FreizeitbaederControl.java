@@ -1,8 +1,9 @@
-package business;
+package gui;
 
-import gui.FreizeitbaederView;
 import javafx.stage.*;
 import java.io.*;
+
+import business.FreizeitbaederModel;
 
 public class FreizeitbaederControl{
 
