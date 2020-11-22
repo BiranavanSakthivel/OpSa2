@@ -5,30 +5,27 @@ import java.io.*;
 
 import business.FreizeitbaederModel;
 
-public class FreizeitbaederControl{
+public class FreizeitbaederControl {
 
 	private static FreizeitbaederView freizeitbaederView;
 	private static FreizeitbaederModel freizeitbaederModel;
 
-	public FreizeitbaederControl(Stage primaryStage){
+	public FreizeitbaederControl(Stage primaryStage) {
 		this.freizeitbaederModel = new FreizeitbaederModel();
-		this.freizeitbaederView	= new FreizeitbaederView(this, primaryStage, freizeitbaederModel);
+		this.freizeitbaederView = new FreizeitbaederView(this, primaryStage, freizeitbaederModel);
 	}
 
-	public static void schreibeFreizeitbaederInDatei(String typ){
-		try{
-			if("csv".equals(typ)){
+	public static void schreibeFreizeitbaederInDatei(String typ) {
+		try {
+			if ("csv".equals(typ)) {
 				freizeitbaederModel.schreibeFreizeitbaederInCsvDatei();
 				freizeitbaederView.zeigeInformationsfensterAn("Die Freizeitbaeder wurden erfolgreich gespeichert");
-			}
-			else
+			} else
 				freizeitbaederView.zeigeInformationsfensterAn("Fehler ");
-		}
-		catch(IOException exc){
+		} catch (IOException exc) {
 			freizeitbaederView.zeigeFehlermeldungAn("Fehler", "Exception beim der Speicherung");
-		}
-		catch(Exception exc){
-			freizeitbaederView.zeigeFehlermeldungAn("Fehler","unbekannter Fehler");
+		} catch (Exception exc) {
+			freizeitbaederView.zeigeFehlermeldungAn("Fehler", "unbekannter Fehler");
 		}
 	}
 
