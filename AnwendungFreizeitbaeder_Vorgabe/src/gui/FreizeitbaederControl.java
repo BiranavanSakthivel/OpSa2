@@ -18,8 +18,11 @@ public class FreizeitbaederControl {
 	public static void schreibeFreizeitbaederInDatei(String typ) {
 		try {
 			if ("csv".equals(typ)) {
-				freizeitbaederModel.schreibeFreizeitbaederInCsvDatei();
+				freizeitbaederModel.schreibeFreizeitbadInCsvDatei();
 				freizeitbaederView.zeigeInformationsfensterAn("Die Freizeitbaeder wurden erfolgreich gespeichert");
+			} else if ("txt".equals(typ)) {
+				freizeitbaederModel.schreibeFreizeitbadInTxtDatei();
+				freizeitbaederView.zeigeInformationsfensterAn("Das Freizeitbad wurde in TXT gespeichert!");
 			} else
 				freizeitbaederView.zeigeInformationsfensterAn("Fehler ");
 		} catch (IOException exc) {
