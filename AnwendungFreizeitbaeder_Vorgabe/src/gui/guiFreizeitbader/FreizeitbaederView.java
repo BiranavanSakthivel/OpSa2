@@ -1,4 +1,4 @@
-package gui;
+package gui.guiFreizeitbader;
 
 import business.Freizeitbad;
 import business.FreizeitbaederModel;
@@ -145,13 +145,13 @@ public class FreizeitbaederView {
 		try {
 			freizeitbaederModel.freizeitbad = new Freizeitbad(txtName.getText(), txtGeoeffnetVon.getText(),
 					txtGeoeffnetBis.getText(), txtBeckenlaenge.getText(), txtWassTemperatur.getText());
-			zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
+			//zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
 		} catch (PlausiException exc) {
 			zeigeFehlermeldungAn(exc.getPlausiTyp() + "er ", exc.getMessage());
 		}
 	}
 
-	private void zeigeFreizeitbaederAn() {
+	public void zeigeFreizeitbaederAn() {
 		if (freizeitbaederModel.freizeitbad != null)
 			txtAnzeige.setText(freizeitbaederModel.freizeitbad.gibFreizeitbadZurueck(' '));
 		else
@@ -159,11 +159,11 @@ public class FreizeitbaederView {
 	}
 
 	public void zeigeInformationsfensterAn(String meldung) {
-		new MeldungsfensterAnzeiger(AlertType.INFORMATION, "Information", meldung).zeigeMeldungsfensterAn();
+		new MeldungsfensterAnzeiger(meldung).zeigeMeldungsfensterAn();
 	}
 
 	public void zeigeFehlermeldungAn(String fehlertyp, String meldung) {
-		new MeldungsfensterAnzeiger(AlertType.ERROR, fehlertyp + "Fehler", meldung).zeigeMeldungsfensterAn();
+		new MeldungsfensterAnzeiger(fehlertyp + "Fehler").zeigeMeldungsfensterAn();
 	}
 
 	private void schreibeFreizeitbaederInDatei(String typ) {
