@@ -51,9 +51,6 @@ public class FreizeitbaederModel implements Observable {
 		}
 	}
 
-	private FreizeitbaederModel() {
-	}
-
 	public void setFreizeitbad(Freizeitbad freizeitbad) {
 		this.freizeitbad = freizeitbad;
 		// setChanged();
@@ -75,7 +72,7 @@ public class FreizeitbaederModel implements Observable {
 	@Override
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
-		for (Observer o : observers) {
+		for (Observer o : this.observers) {
 			o.update();
 		}
 	}
