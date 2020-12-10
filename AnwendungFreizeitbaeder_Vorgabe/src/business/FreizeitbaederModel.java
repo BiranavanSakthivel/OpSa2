@@ -13,7 +13,10 @@ import obs.Observer;
 public class FreizeitbaederModel implements Observable {
 
 	public Freizeitbad freizeitbad;
-
+	ArrayList<Observer> observers = new ArrayList<Observer>();
+	private static FreizeitbaederModel theInstance = null;
+	
+	private FreizeitbaederModel() {}
 	/*
 	 * public void schreibeFreizeitbaederInCsvDatei() throws IOException { // Werfen
 	 * einer IOException BufferedWriter aus = new BufferedWriter(new
@@ -38,9 +41,7 @@ public class FreizeitbaederModel implements Observable {
 
 	}
 
-	ArrayList<Observer> observers = new ArrayList<Observer>();
 
-	static FreizeitbaederModel theInstance = null;
 
 	public static FreizeitbaederModel getInstance() {
 		if (theInstance == null) {
