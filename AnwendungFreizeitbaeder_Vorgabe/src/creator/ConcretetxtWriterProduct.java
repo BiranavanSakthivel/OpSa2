@@ -3,6 +3,7 @@ package creator;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import business.Freizeitbad;
 
@@ -21,9 +22,35 @@ public class ConcretetxtWriterProduct extends Product {
 	}
 
 	@Override
-	public void fuegeZeileHinzu(Object obj) throws IOException {
+	public void fuegeInDateiHinzu(Object object) throws IOException {
 
-		aus.write(((Freizeitbad) obj).gibFreizeitbadZurueck(' '));
+		aus.write("Daten des Freizeitbads\n");
+		aus.write("Name des Freizeitbads:\t\t\t\t\t" + ((Freizeitbad) object).getName() + "\n");
+		aus.write("Öffnungszeit des Freizeitbads:\t\t\t\t" + ((Freizeitbad) object).getGeoeffnetVon() + " - "
+				+ ((Freizeitbad) object).getGeoeffnetBis() + "\n");
+		aus.write("Beckenlänge des Freizeitbads:\t\t\t\t" + ((Freizeitbad) object).getBeckenlaenge() + "\n");
+		aus.write("Wassertemperatur des Freizeitbads:\t\t\t\t" + ((Freizeitbad) object).getTemperatur());
+		aus.write("\n\n");
+
+	}
+
+	@Override
+	public void schliesseDatei() throws IOException {
 		aus.close();
 	}
+
+	/*
+	 * public void schreibeArtikel(ArrayList<Freizeitbad> artikel) throws
+	 * IOException{ BufferedWriter aus = new BufferedWriter(new
+	 * FileWriter("Artikel.txt")); aus.write(artikel.size() + ""); aus.newLine();
+	 * 
+	 * for(Freizeitbad art : artikel){ aus.write(art.getArtikelnummer());
+	 * aus.newLine(); aus.write(art.getArtikelname()); aus.newLine();
+	 * aus.write(art.getBasispreis() + ""); aus.newLine(); } aus.close(); }
+	 * 
+	 * /*
+	 * 
+	 * @Override public void fuegeZeileHinzu(Object obj) throws IOException {
+	 * aus.write(((Freizeitbad) obj).gibFreizeitbadZurueck(' ')); aus.close(); }
+	 */
 }

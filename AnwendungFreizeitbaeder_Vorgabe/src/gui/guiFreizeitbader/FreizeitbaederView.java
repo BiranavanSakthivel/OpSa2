@@ -143,19 +143,31 @@ public class FreizeitbaederView {
 
 	private void nehmeFreizeitbadAuf() {
 		try {
-			freizeitbaederModel.freizeitbad = new Freizeitbad(txtName.getText(), txtGeoeffnetVon.getText(),
-					txtGeoeffnetBis.getText(), txtBeckenlaenge.getText(), txtWassTemperatur.getText());
-			//zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
+			/*
+			 * freizeitbaederModel.freizeitbad = new Freizeitbad(txtName.getText(),
+			 * txtGeoeffnetVon.getText(), txtGeoeffnetBis.getText(),
+			 * txtBeckenlaenge.getText(), txtWassTemperatur.getText());
+			 * //zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
+			 */
+			this.freizeitbaederModel.addFreizeitbad(new Freizeitbad(txtName.getText(), txtGeoeffnetVon.getText(),
+					txtGeoeffnetBis.getText(), txtBeckenlaenge.getText(), txtWassTemperatur.getText()));
 		} catch (PlausiException exc) {
 			zeigeFehlermeldungAn(exc.getPlausiTyp() + "er ", exc.getMessage());
 		}
 	}
 
 	public void zeigeFreizeitbaederAn() {
-		if (freizeitbaederModel.freizeitbad != null)
-			txtAnzeige.setText(freizeitbaederModel.freizeitbad.gibFreizeitbadZurueck(' '));
-		else
+		if (freizeitbaederModel.freizeitbad != null) {
+			// txtAnzeige.setText(freizeitbaederModel.freizeitbad.gibFreizeitbadZurueck('
+			// '));
+			StringBuffer text = new StringBuffer();
+			for (Freizeitbad fzb : this.freizeitbaederModel.freizeitbad) {
+				text.append(fzb.gibFreizeitbadZurueck(' ') + "\n");
+			}
+			this.txtAnzeige.setText(text.toString());
+		} else {
 			zeigeInformationsfensterAn("Bisher wurde kein Freizeitbad aufgenommen!");
+		}
 	}
 
 	public void zeigeInformationsfensterAn(String meldung) {

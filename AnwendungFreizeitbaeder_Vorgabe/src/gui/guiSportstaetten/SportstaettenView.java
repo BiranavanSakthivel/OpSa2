@@ -1,5 +1,6 @@
 package gui.guiSportstaetten;
 
+import business.Freizeitbad;
 import business.FreizeitbaederModel;
 import javafx.event.*;
 import javafx.scene.Scene;
@@ -76,7 +77,13 @@ public class SportstaettenView {
 
 	void zeigeFreizeitbadAn() {
 		if (freizeitbaederModel.getFreizeitbad() != null) {
-			txtAnzeigeFreizeitbaeder.setText(freizeitbaederModel.getFreizeitbad().gibFreizeitbadZurueck(' '));
+			// txtAnzeigeFreizeitbaeder.setText(freizeitbaederModel.getFreizeitbad().gibFreizeitbadZurueck('
+			// '));
+			StringBuffer text = new StringBuffer();
+			for (Freizeitbad fzb : this.freizeitbaederModel.getFreizeitbad()) {
+				text.append(fzb.gibFreizeitbadZurueck(' ') + "\n");
+			}
+			this.txtAnzeigeFreizeitbaeder.setText(text.toString());
 		} else {
 			zeigeInformationsfensterAn("Bisher wurde kein Freizeitbad aufgenommen!");
 		}
@@ -85,7 +92,8 @@ public class SportstaettenView {
 	void zeigeInformationsfensterAn(String meldung) {
 		new MeldungsfensterAnzeiger(meldung).zeigeMeldungsfensterAn();
 	}
-	void zeigeFehlermeldungAn(String fehlertyp, String meldung){
+
+	void zeigeFehlermeldungAn(String fehlertyp, String meldung) {
 		new MeldungsfensterAnzeiger(fehlertyp + "Fehler").zeigeMeldungsfensterAn();
 	}
 }
