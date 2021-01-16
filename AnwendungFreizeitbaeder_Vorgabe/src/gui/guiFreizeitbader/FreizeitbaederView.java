@@ -129,6 +129,15 @@ public class FreizeitbaederView {
 				zeigeFreizeitbaederAn();
 			}
 		});
+		
+	    mnItmCsvExport.setOnAction(e -> {
+	    	schreibeFreizeitbaederInDatei("csv");
+	    });
+	    
+	    mnItmTxtExport.setOnAction(e -> {
+	    	schreibeFreizeitbaederInDatei("txt");
+	    });
+		/*
 		mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				schreibeFreizeitbaederInDatei("csv");
@@ -139,6 +148,7 @@ public class FreizeitbaederView {
 				schreibeFreizeitbaederInDatei("txt");
 			}
 		});
+		*/
 	}
 
 	private void nehmeFreizeitbadAuf() {
