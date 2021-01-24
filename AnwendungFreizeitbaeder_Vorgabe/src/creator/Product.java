@@ -3,7 +3,7 @@ package creator;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import business.Freizeitbad;
+import business.businessFreizeitbad.Freizeitbad;
 
 public abstract class Product {
 

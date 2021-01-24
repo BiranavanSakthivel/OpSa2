@@ -1,4 +1,4 @@
-package business;
+package business.businessFreizeitbad;
 
 import java.io.*;
 import java.util.ArrayList;

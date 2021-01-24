@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import business.Freizeitbad;
+import business.businessFreizeitbad.Freizeitbad;
 
 public class ConcretetxtWriterProduct extends Product {
 

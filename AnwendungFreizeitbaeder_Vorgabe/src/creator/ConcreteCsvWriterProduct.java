@@ -3,7 +3,7 @@ package creator;
 import java.io.*;
 import java.io.IOException;
 
-import business.Freizeitbad;
+import business.businessFreizeitbad.Freizeitbad;
 
 public class ConcreteCsvWriterProduct extends Product {
 

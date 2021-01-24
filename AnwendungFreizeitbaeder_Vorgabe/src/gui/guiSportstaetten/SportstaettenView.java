@@ -1,7 +1,12 @@
 package gui.guiSportstaetten;
 
-import business.Freizeitbad;
-import business.FreizeitbaederModel;
+import java.util.Iterator;
+
+import business.businessFreizeitbad.Freizeitbad;
+//import business.Freizeitbad;
+import business.businessFreizeitbad.FreizeitbaederModel;
+import business.businessSporthallen.Sporthalle;
+import business.businessSporthallen.SporthallenModel;
 import javafx.event.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,6 +20,7 @@ public class SportstaettenView {
 
 	private SportstaettenControl sportstaettenControl;
 	private FreizeitbaederModel freizeitbaederModel;
+	private SporthallenModel sporthalleModel;
 
 	// ---Anfang Attribute der grafischen Oberflaeche---
 	private Pane pane = new Pane();
@@ -75,6 +81,7 @@ public class SportstaettenView {
 		});
 	}
 
+	
 	void zeigeFreizeitbadAn() {
 		if (freizeitbaederModel.getFreizeitbad() != null) {
 			// txtAnzeigeFreizeitbaeder.setText(freizeitbaederModel.getFreizeitbad().gibFreizeitbadZurueck('
@@ -88,6 +95,29 @@ public class SportstaettenView {
 			zeigeInformationsfensterAn("Bisher wurde kein Freizeitbad aufgenommen!");
 		}
 	}
+	
+	
+	void zeigeSporthalleAn() throws PlausiException {
+		try {
+			sporthalleModel.leseSporthallenAusCsvDatei();			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		if (sporthalleModel.getSporthallen().size()>0) {
+			StringBuffer buffer = new StringBuffer();
+			for (Sporthalle sphalle : sporthalleModel.getSporthallen()) {
+				buffer.append(sphalle.gibSporthalleZurueck(' ')+"\n");
+			}
+			this.txtAnzeigeSportstaetten.setText(buffer.toString());
+		} else {
+			zeigeInformationsfensterAn("Fehler, keine Sporthalle importiert.");
+		}
+		
+	}
+	
+	
 
 	void zeigeInformationsfensterAn(String meldung) {
 		new MeldungsfensterAnzeiger(meldung).zeigeMeldungsfensterAn();

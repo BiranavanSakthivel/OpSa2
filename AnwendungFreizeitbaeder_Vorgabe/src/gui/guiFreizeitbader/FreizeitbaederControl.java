@@ -3,7 +3,7 @@ package gui.guiFreizeitbader;
 import javafx.stage.*;
 import java.io.*;
 
-import business.FreizeitbaederModel;
+import business.businessFreizeitbad.FreizeitbaederModel;
 import obs.Observer;
 
 

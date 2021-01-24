@@ -1,7 +1,7 @@
 package gui.guiFreizeitbader;
 
-import business.Freizeitbad;
-import business.FreizeitbaederModel;
+import business.businessFreizeitbad.Freizeitbad;
+import business.businessFreizeitbad.FreizeitbaederModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

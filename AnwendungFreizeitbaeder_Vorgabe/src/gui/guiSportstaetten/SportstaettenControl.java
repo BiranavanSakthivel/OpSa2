@@ -2,7 +2,7 @@ package gui.guiSportstaetten;
 
 import java.io.IOException;
 
-import business.FreizeitbaederModel;
+import business.businessFreizeitbad.FreizeitbaederModel;
 import javafx.stage.Stage;
 import obs.Observer;
 
